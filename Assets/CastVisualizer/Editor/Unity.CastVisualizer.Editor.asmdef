@@ -1,0 +1,16 @@
+{
+    "name": "Unity.CastVisualizer.Editor",
+    "references": [
+        "Unity.CastVisualizer.Editor.HarmonyLib"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}
