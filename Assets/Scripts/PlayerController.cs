@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         _torque = amount * _rotationSpeed;
         if(_torque <= float.Epsilon)
         {
-
+            Debug.Log("Stopped");
         }
 
 
@@ -99,8 +99,7 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
         _rigidbody.velocity = _velocity;
-        //_rigidbody.AddTorque(_torque);
-        _rigidbody.MoveRotation(_rigidbody.rotation + _torque*Time.fixedDeltaTime);
+        _rigidbody.AddTorque(_torque);
         HandleGravity(Time.fixedDeltaTime);
 
     }
