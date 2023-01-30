@@ -28,8 +28,9 @@ public class InputHandler : MonoBehaviour
 
     private void HandleMovement(InputAction.CallbackContext action)
     {
+
+        _playerManger.setMoveAmount(action.ReadValue<float>());
         
-        Debug.Log(action.ReadValue<float>());
     }
 
     private void HandleJumpInput(InputAction.CallbackContext action)

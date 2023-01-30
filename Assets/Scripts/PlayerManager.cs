@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     PlayerController _playerController;
     public event Action<bool> Crouched;
     public event Action Jumped;
+    float _moveAmount;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _playerController.Move(_moveAmount);
     }
     public void Crouch(bool crouch)
     {
@@ -28,5 +29,10 @@ public class PlayerManager : MonoBehaviour
     public void Jump()
     {
         Jumped?.Invoke();
+    }
+
+    public void setMoveAmount(float moveAmount)
+    {
+        _moveAmount = moveAmount;
     }
 }

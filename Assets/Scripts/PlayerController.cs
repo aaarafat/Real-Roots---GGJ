@@ -7,11 +7,15 @@ public class PlayerController : MonoBehaviour
 {
 
     Rigidbody2D _rigidbody;
+    bool _isGrounded;
     [SerializeField]
     float _jumpSpeed;
-    Vector2 _jumpVelocity;
     [SerializeField]
-    bool _isGrounded;
+    float _speed;
+    [SerializeField]
+    float _rotationSpeed;
+    Vector2 _jumpVelocity;
+
     bool _jump;
     bool _fall;
     PlayerManager _playerManager;
@@ -23,6 +27,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     LayerMask _groundLayerMask;
     float _direction;
+    float _torque;
+    private Vector2 _velocity;
+
+    float _lerpRotation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,15 +77,31 @@ public class PlayerController : MonoBehaviour
     {
     }
 
+    public void Move(float amount)
+    {
+        _velocity = _rigidbody.velocity;
+        _velocity.x = amount * _direction * _speed;
+        _torque = amount * _rotationSpeed;
+        if(_torque <= float.Epsilon)
+        {
+
+        }
+
+
+    }
+
     private void FixedUpdate()
     {
-        HandleGravity(Time.fixedDeltaTime);
-      CheckGround();
-      if(_jump)
+        CheckGround();
+        if(_jump)
         {
             _jump = false;
             Jump();
         }
+        _rigidbody.velocity = _velocity;
+        //_rigidbody.AddTorque(_torque);
+        _rigidbody.MoveRotation(_rigidbody.rotation + _torque*Time.fixedDeltaTime);
+        HandleGravity(Time.fixedDeltaTime);
 
     }
 
@@ -100,5 +125,16 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         //if (_groundLayerMask.value >> collision.gameObject.layer == 1) { _isGrounded = false; }
+    }
+
+    private float GetLerpAngle(float angle)
+    {
+        float positive = Mathf.Sign(angle);
+        float absAngle = Mathf.Abs(angle);
+        float goTo = 0;
+        if (absAngle > 0) goTo = 90;
+        else if (absAngle > 90) goTo = 0;
+        return 0;
+
     }
 }
