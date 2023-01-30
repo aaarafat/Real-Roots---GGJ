@@ -30,13 +30,19 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _jumpVelocity = new Vector2(0, _jumpSpeed);
         _playerManager = GetComponent<PlayerManager>();
-        PlayerManager.Crouched += HandleCrouching;
-        PlayerManager.Jumped += () => _jump = true; ;
+        _playerManager.Crouched += HandleCrouching;
+        _playerManager.Jumped += HandleJumping ;
+    }
+
+    private void HandleJumping()
+    {
+        Debug.Log($"Test from {_direction}");
     }
 
     private void OnDestroy()
     {
-        PlayerManager.Crouched -= HandleCrouching;
+        _playerManager.Crouched -= HandleCrouching;
+        _playerManager.Jumped += HandleJumping;
     }
     // Update is called once per frame
     void Update()
@@ -51,15 +57,7 @@ public class PlayerController : MonoBehaviour
     }
     public void HandleCrouching(bool crouch)
     {
-        if (_isGrounded)
-        {
-            if (crouch) StartCrouching();
-            else StopCrouching();
-        }
-        else
-        {
-            _fall = true;
-        }
+       
 
     }
     void StartCrouching()

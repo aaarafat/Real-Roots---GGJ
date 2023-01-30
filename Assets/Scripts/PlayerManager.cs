@@ -7,8 +7,8 @@ public class PlayerManager : MonoBehaviour
 {
     InputHandler _inputHandler;
     PlayerController _playerController;
-    public static event Action<bool> Crouched;
-    public static event Action Jumped;
+    public event Action<bool> Crouched;
+    public event Action Jumped;
     // Start is called before the first frame update
     void Start()
     {
