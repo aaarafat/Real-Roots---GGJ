@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private void HandleJumping()
     {
         Debug.Log($"Test from {_direction}");
+        Jump();
     }
 
     private void OnDestroy()
