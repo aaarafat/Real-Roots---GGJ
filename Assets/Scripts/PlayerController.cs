@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
 {
 
     Rigidbody2D _rigidbody;
+    CircleCollider2D _collider;
+
+
     bool _isGrounded;
     [SerializeField]
     float _jumpSpeed;
@@ -27,7 +30,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     LayerMask _groundLayerMask;
     float _direction;
-    float _torque;
+    float _angularVelocity;
     private Vector2 _velocity;
 
     float _lerpRotation;
@@ -37,6 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         _direction = _inverted? -1 : 1;
         _rigidbody = GetComponent<Rigidbody2D>();
+        _collider= GetComponent<CircleCollider2D>();
         _jumpVelocity = new Vector2(0, _jumpSpeed);
         _playerManager = GetComponent<PlayerManager>();
         _playerManager.Crouched += HandleCrouching;
@@ -80,8 +84,8 @@ public class PlayerController : MonoBehaviour
     public void Move(float amount)
     {
         _velocity = _rigidbody.velocity;
-        _velocity.x = amount * _direction * _speed;
-        _torque = amount * _rotationSpeed * -1 ;
+        _angularVelocity = amount * _rotationSpeed;
+        _velocity.x = _angularVelocity * _collider.radius * _direction /90;
 
     }
 
@@ -93,10 +97,12 @@ public class PlayerController : MonoBehaviour
             _jump = false;
             Jump();
         }
+
+
+        //_rigidbody.AddTorque(_angularVelocity);
+        //_rigidbody.MoveRotation(_rigidbody.rotation + _angularVelocity*Time.fixedDeltaTime);
+        transform.Rotate(new Vector3(0, 0,- _angularVelocity * Time.fixedDeltaTime));
         _rigidbody.velocity = _velocity;
-        //_rigidbody.AddTorque(_torque);
-        //_rigidbody.MoveRotation(_rigidbody.rotation + _torque*Time.fixedDeltaTime);
-        transform.Rotate(new Vector3(0, 0, _torque * Time.fixedDeltaTime));
         HandleGravity(Time.fixedDeltaTime);
 
     }
