@@ -132,8 +132,9 @@ public class PlayerController : MonoBehaviour
         float absAngle = Mathf.Abs(angle);
         float goTo = 0;
         if (absAngle > 0) goTo = 90;
-        else if (absAngle > 90) goTo = 0;
+        else if (absAngle > 90) goTo = 90;
         return 0;
+
 
     }
 }
