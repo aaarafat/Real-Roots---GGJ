@@ -84,8 +84,9 @@ public class PlayerController : MonoBehaviour
     public void Move(float amount)
     {
         _velocity = _rigidbody.velocity;
-        _angularVelocity = amount * _rotationSpeed;
-        _velocity.x = _angularVelocity * _collider.radius * _direction /90;
+        _velocity.x = amount * _direction * _speed;
+        //_velocity.x = _angularVelocity * _collider.radius * _direction / Mathf.PI;
+        _angularVelocity = _velocity.x /( _collider.radius *_direction) * _rotationSpeed * Mathf.PI  ;
 
     }
 
@@ -101,7 +102,8 @@ public class PlayerController : MonoBehaviour
 
         //_rigidbody.AddTorque(_angularVelocity);
         //_rigidbody.MoveRotation(_rigidbody.rotation + _angularVelocity*Time.fixedDeltaTime);
-        transform.Rotate(new Vector3(0, 0,- _angularVelocity * Time.fixedDeltaTime));
+        if(Mathf.Abs(_rigidbody.velocity.x) > 1)
+            transform.Rotate(new Vector3(0, 0,- _angularVelocity * Time.fixedDeltaTime));
         _rigidbody.velocity = _velocity;
         HandleGravity(Time.fixedDeltaTime);
 
