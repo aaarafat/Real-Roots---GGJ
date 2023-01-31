@@ -400,7 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jumpSpeed: 20
   _speed: 10
-  _rotationSpeed: 50
+  _rotationSpeed: 360
   _inverted: 0
   _gravity: 50
   _groundLayerMask:
@@ -2719,7 +2719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jumpSpeed: 20
   _speed: 10
-  _rotationSpeed: 50
+  _rotationSpeed: 360
   _inverted: 1
   _gravity: 50
   _groundLayerMask:
