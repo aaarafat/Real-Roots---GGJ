@@ -118,6 +118,7 @@ public class PlayerController : MonoBehaviour
     {
 
         RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one*0.9f, 0, Vector2.down * _direction, 0.2f, _groundLayerMask);
+        transform.SetParent(hit.transform);
         _isGrounded = (hit) ? true : false;
 
     }
