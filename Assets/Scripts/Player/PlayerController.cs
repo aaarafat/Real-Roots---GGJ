@@ -117,8 +117,17 @@ public class PlayerController : MonoBehaviour
     private void CheckGround()
     {
 
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one*0.9f, 0, Vector2.down * _direction, 0.2f, _groundLayerMask);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.9f, 0, Vector2.down * _direction, 0.2f, _groundLayerMask);
         transform.SetParent(hit.transform);
+
+            if(hit && !_isGrounded)
+            {
+                if(hit.collider.gameObject.tag == "Platform")
+                {
+                    Debug.Log("Landed");
+                }
+            }
+       
         _isGrounded = (hit) ? true : false;
 
     }
@@ -142,5 +151,9 @@ public class PlayerController : MonoBehaviour
         return 0;
 
 
+    }
+    public void AddForce(float force,Vector2 direction)
+    {
+        _rigidbody.AddForce(direction * _direction * force);
     }
 }

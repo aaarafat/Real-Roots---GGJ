@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     PlayerController _playerController;
     public event Action<bool> Crouched;
     public event Action Jumped;
+    public event Action<PlayerController> LandedOnPlatform;
     float _moveAmount;
     // Start is called before the first frame update
     void Start()
