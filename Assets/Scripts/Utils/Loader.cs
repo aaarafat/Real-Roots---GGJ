@@ -64,4 +64,9 @@ public static class Loader
             onLoaderCallback = null;
         }
     }
+
+    public static void ReloadCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
