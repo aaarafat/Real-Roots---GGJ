@@ -17,10 +17,11 @@ public class SlidingPlatform : MonoBehaviour
     private void Awake()
     {
         _transform = transform;
-        if(_invertY)
+        if (_invertY)
         {
             _direction = -1;
-            _transform.rotation = Quaternion.Euler(0,180,0);
+            _transform.Rotate(0, 180, 0);
+
         }
     }
     void Start()
