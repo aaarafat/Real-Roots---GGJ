@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5352869085554175030}
   - component: {fileID: 5352869085554175031}
   m_Layer: 6
-  m_Name: SlidingPlatform
+  m_Name: BlackSlidingPlatform
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 1836758399
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -625417868, guid: 88c4c0477269bce47b4511fb27d69e37, type: 3}
+  m_Sprite: {fileID: -636818701, guid: 995fd0df59ad59d45a53dcef44a40685, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
