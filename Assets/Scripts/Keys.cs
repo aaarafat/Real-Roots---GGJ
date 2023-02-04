@@ -37,6 +37,7 @@ public class Keys : MonoBehaviour
             _white.enabled= false;
             _black.enabled= false;
             Debug.Log("win");
+            GameManager.Instance.Win();
         }
     }
 

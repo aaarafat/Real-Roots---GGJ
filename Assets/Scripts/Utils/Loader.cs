@@ -69,4 +69,8 @@ public static class Loader
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    public static void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
