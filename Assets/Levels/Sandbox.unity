@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 348732079}
   - component: {fileID: 348732078}
   - component: {fileID: 348732077}
+  - component: {fileID: 348732082}
   m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
@@ -1906,6 +1907,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &348732082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348732075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182b3917cbccc094e95c286cba47ac44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &436888777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,6 +1933,7 @@ GameObject:
   - component: {fileID: 436888781}
   - component: {fileID: 436888780}
   - component: {fileID: 436888779}
+  - component: {fileID: 436888784}
   m_Layer: 6
   m_Name: Ceiling
   m_TagString: Untagged
@@ -2646,6 +2660,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &436888784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436888777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182b3917cbccc094e95c286cba47ac44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &475803157
 GameObject:
   m_ObjectHideFlags: 0
