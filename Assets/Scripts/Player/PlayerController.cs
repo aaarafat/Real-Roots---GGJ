@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour
 
     private void HandleJumping()
     {
-        Debug.Log($"Test from {_direction}");
         Jump();
     }
 
@@ -124,7 +123,7 @@ public class PlayerController : MonoBehaviour
             {
                 if(hit.collider.gameObject.tag == "Platform")
                 {
-                    Debug.Log("Landed");
+                    // Expand if needed
                 }
             }
        
