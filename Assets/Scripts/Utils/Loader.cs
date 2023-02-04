@@ -23,6 +23,7 @@ public static class Loader
         onLoaderCallback = () => {
             GameObject loadingGameObject = new GameObject("Loading Game Object");
             loadingGameObject.AddComponent<LoadingMonoBehaviour>().StartCoroutine(LoadSceneAsync(scene));
+
         };
 
         // Load the loading scene
