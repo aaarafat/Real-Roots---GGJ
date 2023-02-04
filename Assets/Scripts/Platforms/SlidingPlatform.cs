@@ -10,9 +10,18 @@ public class SlidingPlatform : MonoBehaviour
     PlayerController _playerController;
     [SerializeField]
     float _force;
+    [SerializeField]
+    bool _invertY;
+
+    float _direction = 1;
     private void Awake()
     {
         _transform = transform;
+        if(_invertY)
+        {
+            _direction = -1;
+            _transform.rotation = Quaternion.Euler(0,180,0);
+        }
     }
     void Start()
     {
@@ -28,6 +37,6 @@ public class SlidingPlatform : MonoBehaviour
     private void FixedUpdate()
     {
         if (_playerController != null)
-            _playerController.AddForce(_force, Vector2.right);
+            _playerController.AddForce(_force, Vector2.right * _direction);
     }
 }

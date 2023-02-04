@@ -45,6 +45,9 @@ TagManager:
   - name: BG
     uniqueID: 1511552101
     locked: 0
+  - name: Platforms
+    uniqueID: 1836758399
+    locked: 0
   - name: Player
     uniqueID: 2281229103
     locked: 0
