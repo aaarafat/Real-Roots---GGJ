@@ -29,4 +29,8 @@ public class LevelPassedMenu : MonoBehaviour
     {
         Loader.LoadNextScene();
     }
+    public void Resume()
+    {
+        GameManager.Instance.Resume();
+    }
 }

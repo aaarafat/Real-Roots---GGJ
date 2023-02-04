@@ -8,15 +8,31 @@ public class LevelHUDManager : MonoBehaviour
 {
     [SerializeField]
     GameObject _passMenu;
+    GameObject _pauseMenu;
     // Start is called before the first frame update
     void Start()
     {
         GameManager.OnPlayerWin += HandleWin;
+        GameManager.OnPause += HandlePause;
+        GameManager.OnResume += HandleResume;
         
     }
+
+    private void HandleResume()
+    {
+        _pauseMenu.SetActive(false);
+    }
+
+    private void HandlePause()
+    {
+        _pauseMenu.SetActive(true);
+    }
+
     private void OnDestroy()
     {
         GameManager.OnPlayerWin -= HandleWin;
+        GameManager.OnPause -= HandlePause;
+        GameManager.OnResume -= HandleResume;
     }
     private void HandleWin()
     {

@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public static event Action OnPlayerDeath;
     public static event Action OnPlayerWin;
+    public static event Action OnPause;
+    public static event Action OnResume;
     private void Awake()
     {
         if (Instance == null)
@@ -45,5 +47,14 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         OnPlayerWin?.Invoke();
+    }
+
+    public void Pause()
+    {
+        OnPause?.Invoke();
+    }
+    public void Resume()
+    {
+        OnResume?.Invoke();
     }
 }
