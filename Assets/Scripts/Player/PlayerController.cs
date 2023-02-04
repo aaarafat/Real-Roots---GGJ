@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _velocity;
 
     float _lerpRotation;
-
+    float _inAirTimer = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,9 +60,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (!_isGrounded)
+        {
+            _inAirTimer += Time.deltaTime;
+        }
     }
-
     void Jump()
     {
         if (!_isGrounded) return;
@@ -125,7 +127,11 @@ public class PlayerController : MonoBehaviour
                 {
                     // Expand if needed
                 }
-            _playerManager.Land();
+                if(_inAirTimer >= 0.25f)
+                {
+                    _inAirTimer= 0;
+                    _playerManager.Land();
+                }
             }
        
         _isGrounded = (hit) ? true : false;
