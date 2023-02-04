@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!61 &20232464 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3269120216111294256, guid: 40710fc7ee11d6a4ab9a9ba363b0d74e, type: 3}
+  m_PrefabInstance: {fileID: 3269120216095268384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &348732075
 GameObject:
   m_ObjectHideFlags: 0
@@ -10944,6 +10949,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &1349539113 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3269120216895343369, guid: 40710fc7ee11d6a4ab9a9ba363b0d74e, type: 3}
+  m_PrefabInstance: {fileID: 3269120216095268384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1408596680
 GameObject:
   m_ObjectHideFlags: 0
@@ -23127,6 +23137,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 400293983809745052, guid: 40710fc7ee11d6a4ab9a9ba363b0d74e, type: 3}
+      propertyPath: _black
+      value: 
+      objectReference: {fileID: 1349539113}
+    - target: {fileID: 400293983809745052, guid: 40710fc7ee11d6a4ab9a9ba363b0d74e, type: 3}
+      propertyPath: _white
+      value: 
+      objectReference: {fileID: 20232464}
+    - target: {fileID: 400293983809745052, guid: 40710fc7ee11d6a4ab9a9ba363b0d74e, type: 3}
+      propertyPath: _triggerThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400293983809745052, guid: 40710fc7ee11d6a4ab9a9ba363b0d74e, type: 3}
+      propertyPath: _playerLayerMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 3269120216898201831, guid: 40710fc7ee11d6a4ab9a9ba363b0d74e, type: 3}
       propertyPath: m_Name
       value: Keys

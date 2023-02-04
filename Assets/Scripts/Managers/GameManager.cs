@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
     public static event Action OnPlayerDeath;
+    public static event Action OnPlayerWin;
     private void Awake()
     {
         if (Instance == null)
@@ -39,5 +40,10 @@ public class GameManager : MonoBehaviour
     {
         OnPlayerDeath?.Invoke();
         Loader.ReloadCurrentScene();
+    }
+
+    public void Win()
+    {
+        OnPlayerWin?.Invoke();
     }
 }
