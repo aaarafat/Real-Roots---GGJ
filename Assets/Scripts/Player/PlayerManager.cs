@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     public event Action<bool> Crouched;
     public event Action Jumped;
     public event Action<PlayerController> LandedOnPlatform;
+    public event Action Landed;
     float _moveAmount;
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,10 @@ public class PlayerManager : MonoBehaviour
         Jumped?.Invoke();
     }
 
+    public void Land()
+    {
+        Landed?.Invoke();
+    }
     public void setMoveAmount(float moveAmount)
     {
         _moveAmount = moveAmount;

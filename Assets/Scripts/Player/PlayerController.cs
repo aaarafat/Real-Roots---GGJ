@@ -125,6 +125,7 @@ public class PlayerController : MonoBehaviour
                 {
                     // Expand if needed
                 }
+            _playerManager.Land();
             }
        
         _isGrounded = (hit) ? true : false;
