@@ -35,13 +35,10 @@ public class MovingPlatform : MonoBehaviour
         if (!Application.isPlaying && (_start.hasChanged || _end.hasChanged))
         {
             _platform.position = 0.5f * (_start.position + _end.position);
-
-            Debug.Log("Editor");
             return;
         }
         else
         {
-            Debug.Log("Gamee");
             _platform.position = Vector2.Lerp(_platform.position, _positions[_curr],Time.deltaTime *_speed);
             if (Vector2.Distance(_platform.position, _positions[_curr]) <= 0.1f)
             {
