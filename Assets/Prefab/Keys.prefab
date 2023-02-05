@@ -268,8 +268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b80b86791dd37eb44b4a14983afb7000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _white: {fileID: 0}
-  _black: {fileID: 0}
+  _white: {fileID: 3269120216111294256}
+  _black: {fileID: 3269120216895343369}
+  _winAudio: {fileID: 8300000, guid: 9c83b1ba4a28a60478e406afed6c5db1, type: 3}
   _playerLayerMask:
     serializedVersion: 2
     m_Bits: 0

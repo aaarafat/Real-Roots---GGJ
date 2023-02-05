@@ -5141,6 +5141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jumpAudio: {fileID: 8300000, guid: fb80cb66b4a4a6f4f934345b518c3421, type: 3}
   _landAudio: {fileID: 8300000, guid: 8ec15b7666d5c894c949d3dd1df95346, type: 3}
+  _deathAudio: {fileID: 8300000, guid: eea1157c86aec3446abb01b03f7a8ded, type: 3}
 --- !u!114 &2648655604014211829
 MonoBehaviour:
   m_ObjectHideFlags: 0

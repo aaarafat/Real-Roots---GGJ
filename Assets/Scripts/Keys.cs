@@ -10,6 +10,9 @@ public class Keys : MonoBehaviour
     Collider2D _black;
 
     [SerializeField]
+    AudioClip _winAudio;
+
+    [SerializeField]
     LayerMask _playerLayerMask;
 
     public bool _whiteTriggerd;
@@ -36,6 +39,8 @@ public class Keys : MonoBehaviour
         {
             _white.enabled= false;
             _black.enabled= false;
+            _won = true;
+            SoundManager.Instance.PlaySound(_winAudio);
             GameManager.Instance.Win();
         }
     }
