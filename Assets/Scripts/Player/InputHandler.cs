@@ -22,6 +22,7 @@ public class InputHandler : MonoBehaviour
         _inputActions.PlayerMovement.Movement.performed +=HandleMovement;
         _inputActions.PlayerMovement.Jump.performed += HandleJumpInput;
 
+
         _inputActions.Enable();
 
     }

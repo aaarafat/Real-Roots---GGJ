@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public static event Action OnPlayerWin;
     public static event Action OnPause;
     public static event Action OnResume;
+
+    public static bool IsPaused = false;
     private void Awake()
     {
         if (Instance == null)
@@ -38,6 +40,12 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void HandlePauseAndResume()
+    {
+        if (IsPaused)
+            Resume();
+        else Pause();
+    }
     public void Die()
     {
         OnPlayerDeath?.Invoke();
@@ -51,10 +59,17 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        Debug.Log("Manager Pause");
+
+        Time.timeScale= 0;
+        IsPaused= true;
         OnPause?.Invoke();
     }
     public void Resume()
     {
+        Debug.Log("Manager Resume");
+        Time.timeScale = 1;
+        IsPaused = false;
         OnResume?.Invoke();
     }
 }
