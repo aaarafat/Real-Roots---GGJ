@@ -13,7 +13,11 @@ public class GameManager : MonoBehaviour
     public static event Action OnPause;
     public static event Action OnResume;
 
+
     public static bool IsPaused = false;
+    private bool _isDead;
+    private float _deathTimer;
+
     private void Awake()
     {
         if (Instance == null)
@@ -37,7 +41,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_isDead) _deathTimer += Time.deltaTime;
+        if(_deathTimer > 0.5f)
+        {
+            _deathTimer= 0;
+            _isDead= false;
+            Loader.ReloadCurrentScene();
+        }
     }
 
     public void HandlePauseAndResume()
@@ -49,7 +59,7 @@ public class GameManager : MonoBehaviour
     public void Die()
     {
         OnPlayerDeath?.Invoke();
-        Loader.ReloadCurrentScene();
+        _isDead = true;
     }
 
     public void Win()
@@ -59,15 +69,12 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        Debug.Log("Manager Pause");
-
         Time.timeScale= 0;
         IsPaused= true;
         OnPause?.Invoke();
     }
     public void Resume()
     {
-        Debug.Log("Manager Resume");
         Time.timeScale = 1;
         IsPaused = false;
         OnResume?.Invoke();
