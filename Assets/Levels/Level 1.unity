@@ -25029,7 +25029,7 @@ PrefabInstance:
       objectReference: {fileID: 20232464}
     - target: {fileID: 400293983809745052, guid: 40710fc7ee11d6a4ab9a9ba363b0d74e, type: 3}
       propertyPath: _triggerThreshold
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 400293983809745052, guid: 40710fc7ee11d6a4ab9a9ba363b0d74e, type: 3}
       propertyPath: _playerLayerMask.m_Bits
