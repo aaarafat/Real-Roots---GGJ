@@ -14889,6 +14889,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2648655604014211829, guid: 237f5abf06f570f44b70d6ac306e5fdf, type: 3}
+      propertyPath: _deathParticles
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487974150125594052, guid: 237f5abf06f570f44b70d6ac306e5fdf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8628202069490957783, guid: 237f5abf06f570f44b70d6ac306e5fdf, type: 3}
       propertyPath: _inverted
       value: 1

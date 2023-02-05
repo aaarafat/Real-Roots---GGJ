@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_playerManager.IsDead) return;
         CheckGround();
         if(_jump)
         {
@@ -91,9 +92,14 @@ public class PlayerController : MonoBehaviour
 
     private void HandleGravity(float delta)
     {
+        if(_playerManager.IsDead) return;
         _rigidbody.AddForce(Vector2.down * _direction * _gravity);
     }
 
+    public void Die()
+    {
+        _rigidbody.velocity = Vector2.zero;
+    }
     private void CheckGround()
     {
 

@@ -22,10 +22,16 @@ public class PlayerManager : MonoBehaviour
         GameManager.OnPlayerDeath += HandleDeath;
     }
 
+    private void OnDestroy()
+    {
+        GameManager.OnPlayerDeath -= HandleDeath;
+    }
+
     private void HandleDeath()
     {
         _moveAmount= 0;
         IsDead = true;
+        _playerController.Die();
     }
 
     // Update is called once per frame
