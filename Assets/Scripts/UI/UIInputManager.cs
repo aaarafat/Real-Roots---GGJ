@@ -20,7 +20,6 @@ public class UIInputManager : MonoBehaviour
     }
     private void HandleGamePause(InputAction.CallbackContext action)
     {
-        Debug.Log("Input pressed");
         GameManager.Instance.HandlePauseAndResume();
     }
 
