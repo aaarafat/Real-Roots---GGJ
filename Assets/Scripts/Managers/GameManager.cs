@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public static bool IsPaused = false;
     private bool _isDead;
     private float _deathTimer;
+    private bool _canPause = true;
 
     private void Awake()
     {
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     public void HandlePauseAndResume()
     {
+        if (!_canPause) return;
         if (IsPaused)
             Resume();
         else Pause();
@@ -64,6 +66,8 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+        _canPause = false;
+        Time.timeScale = 0;
         OnPlayerWin?.Invoke();
     }
 
@@ -78,5 +82,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         IsPaused = false;
         OnResume?.Invoke();
+    }
+
+    public void CanPause()
+    {
+        _canPause = true;
+        Time.timeScale = 1;
     }
 }

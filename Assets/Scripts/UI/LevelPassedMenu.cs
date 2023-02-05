@@ -33,4 +33,9 @@ public class LevelPassedMenu : MonoBehaviour
     {
         GameManager.Instance.Resume();
     }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.CanPause();
+    }
 }
