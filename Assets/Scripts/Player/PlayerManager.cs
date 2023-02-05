@@ -11,12 +11,21 @@ public class PlayerManager : MonoBehaviour
     public event Action Jumped;
     public event Action<PlayerController> LandedOnPlatform;
     public event Action Landed;
+    public bool IsDead = false;
     float _moveAmount;
     // Start is called before the first frame update
     void Start()
     {
+        IsDead= false;
         _inputHandler= GetComponent<InputHandler>();
         _playerController= GetComponent<PlayerController>();
+        GameManager.OnPlayerDeath += HandleDeath;
+    }
+
+    private void HandleDeath()
+    {
+        _moveAmount= 0;
+        IsDead = true;
     }
 
     // Update is called once per frame
@@ -30,6 +39,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void Jump()
     {
+        if(IsDead) return;
         Jumped?.Invoke();
     }
 
@@ -39,6 +49,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void setMoveAmount(float moveAmount)
     {
+        if (IsDead) return;
         _moveAmount = moveAmount;
     }
 }
