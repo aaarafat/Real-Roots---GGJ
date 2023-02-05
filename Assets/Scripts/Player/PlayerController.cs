@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
             }
        
         _isGrounded = (hit) ? true : false;
+        _playerManager.IsGrounded = _isGrounded;
 
     }
     public void AddForce(float force,Vector2 direction)

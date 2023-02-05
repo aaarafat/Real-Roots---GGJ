@@ -12,6 +12,8 @@ public class PlayerManager : MonoBehaviour
     public event Action<PlayerController> LandedOnPlatform;
     public event Action Landed;
     public bool IsDead = false;
+    public bool IsGrounded;
+
     float _moveAmount;
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,7 @@ public class PlayerManager : MonoBehaviour
     public void Jump()
     {
         if(IsDead) return;
+        if(!IsGrounded) return;
         Jumped?.Invoke();
     }
 
