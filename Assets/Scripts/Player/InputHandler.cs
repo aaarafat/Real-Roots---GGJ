@@ -43,6 +43,8 @@ public class InputHandler : MonoBehaviour
     private void OnDisable()
     {
         _inputActions.Disable();
+        _inputActions.PlayerMovement.Movement.performed -= HandleMovement;
+        _inputActions.PlayerMovement.Jump.performed -= HandleJumpInput;
     }
     void Start()
     {

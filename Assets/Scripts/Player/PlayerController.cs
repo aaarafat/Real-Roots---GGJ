@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
     private void OnDestroy()
     {
         _playerManager.Crouched -= HandleCrouching;
-        _playerManager.Jumped += HandleJumping;
+        _playerManager.Jumped -= HandleJumping;
     }
     // Update is called once per frame
     void Update()
