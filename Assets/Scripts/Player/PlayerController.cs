@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+   
         if (!_isGrounded)
         {
             _inAirTimer += Time.deltaTime;
@@ -99,6 +100,7 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         _rigidbody.velocity = Vector2.zero;
+        _rigidbody.isKinematic = true;
     }
     private void CheckGround()
     {
