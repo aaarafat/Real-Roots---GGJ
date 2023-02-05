@@ -29,6 +29,7 @@ public class PlayerManager : MonoBehaviour
 
     private void HandleDeath()
     {
+        GetComponent<SpriteRenderer>().enabled = false;
         _moveAmount= 0;
         IsDead = true;
         _playerController.Die();
