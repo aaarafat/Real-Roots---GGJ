@@ -13,10 +13,10 @@ public class GameManager : MonoBehaviour
     public static event Action OnPause;
     public static event Action OnResume;
 
-
     public static bool IsPaused = false;
     private bool _isDead;
     private float _deathTimer;
+    public float _deathThreshold = 0.5f;
     private bool _canPause = true;
 
     private void Awake()
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (_isDead) _deathTimer += Time.deltaTime;
-        if(_deathTimer > 0.5f)
+        if(_deathTimer > _deathThreshold)
         {
             _deathTimer= 0;
             _isDead= false;
